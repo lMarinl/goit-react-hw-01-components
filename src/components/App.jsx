@@ -1,16 +1,30 @@
-export const App = () => {
+import { Profile } from './Profile/Profile';
+import user from '../UserData/user.json';
+
+import { Statistics } from './Statistics/Statistics';
+import data from '../UserData/data.json';
+
+import { FriendList, FriendListItem } from './FriendList/FriendList';
+import friends from '../UserData/friends.json';
+
+import { TransactionHistory } from './Transactions/Transactions';
+import transactions from '../UserData/transactions.json';
+
+export function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Profile
+        userName={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
+      />
+      <Statistics title="Upload stats" data={data} />
+      <FriendList>
+        <FriendListItem friends={friends} />
+      </FriendList>
+      <TransactionHistory transactionsData={transactions} />;
     </div>
   );
-};
+}
