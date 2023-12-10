@@ -1,3 +1,5 @@
+import AppCss from './App.module.css';
+
 import { Profile } from './Profile/Profile';
 import user from '../UserData/user.json';
 
@@ -12,7 +14,7 @@ import transactions from '../UserData/transactions.json';
 
 export function App() {
   return (
-    <div>
+    <div className={AppCss.container}>
       <Profile
         userName={user.username}
         tag={user.tag}
@@ -20,11 +22,11 @@ export function App() {
         avatar={user.avatar}
         stats={user.stats}
       />
-      <Statistics title="Upload stats" data={data} />
+      <Statistics title="Upload stats" stats={data} />
       <FriendList>
         <FriendListItem friends={friends} />
       </FriendList>
-      <TransactionHistory transactionsData={transactions} />;
+      <TransactionHistory item={transactions} />;
     </div>
   );
 }

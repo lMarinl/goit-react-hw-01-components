@@ -1,22 +1,23 @@
 import React from 'react';
+import transactionCss from './Transactions.module.css';
 
-export const TransactionHistory = ({ transactionsData }) => {
+export const TransactionHistory = ({ item }) => {
   return (
-    <table className="transaction-history">
+    <table className={transactionCss.transactionHistory}>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <th className={transactionCss.tableHeader}>Type</th>
+          <th className={transactionCss.tableHeader}>Amount</th>
+          <th className={transactionCss.tableHeader}>Currency</th>
         </tr>
       </thead>
 
       <tbody>
-        {transactionsData.map(({ id, type, amount, currency }) => (
-          <tr key={id}>
-            <td>{type}</td>
-            <td>{amount}</td>
-            <td>{currency}</td>
+        {item.map(({ id, type, amount, currency }) => (
+          <tr className={transactionCss.tableRow} key={id}>
+            <td className={transactionCss.tableCell}>{type}</td>
+            <td className={transactionCss.tableCell}>{amount}</td>
+            <td className={transactionCss.tableCell}>{currency}</td>
           </tr>
         ))}
       </tbody>

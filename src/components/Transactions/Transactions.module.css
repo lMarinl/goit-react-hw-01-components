@@ -1,0 +1,23 @@
+.transactionHistory {
+  max-width: 500px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.tableHeader,
+.tableCell {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid rgb(135, 170, 232);
+}
+
+.tableHeader {
+  font-size: 18px;
+  font-weight: 500;
+  background-color: rgb(203, 216, 239);
+}
+
+.tableRow:nth-child(even) {
+  background-color: rgba(203, 216, 239, 0.462);
+}
