@@ -1,16 +1,16 @@
 import React from 'react';
-import StatisticsCss from './Statistics.module.css';
+import Css from './Statistics.module.css';
 
 export const Statistics = ({ title = '', stats }) => {
   return (
-    <section className={StatisticsCss.statistics}>
-      <h2 className={StatisticsCss.title}>{title}</h2>
+    <section className={Css.statistics}>
+      {title && <h2 className={Css.title}>{title}</h2>}
 
-      <ul className={StatisticsCss.stat}>
+      <ul className={Css.stat}>
         {stats.map(({ id, label, percentage }) => (
-          <li className={StatisticsCss.item} key={id}>
-            <span className={StatisticsCss.label}>{label}</span>
-            <span className={StatisticsCss.percentage}>{percentage}%</span>
+          <li className={Css.item} key={id}>
+            <span className={Css.label}>{label}</span>
+            <span className={Css.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>

@@ -1,31 +1,30 @@
 import React from 'react';
-import friendsCss from './FriendList.module.css';
+import Css from './FriendList.module.css';
 
-export const FriendList = ({ children }) => (
-  <ul className={friendsCss.list}>{children}</ul>
+export const FriendList = ({ friends }) => (
+  <ul className={Css.list}>
+    {friends.map(({ avatar, name, isOnline, id }) => {
+      return (
+        <FriendListItem
+          key={id}
+          avatar={avatar}
+          name={name}
+          isOnline={isOnline}
+          id={id}
+        />
+      );
+    })}
+  </ul>
 );
 
-export const FriendListItem = ({ friends }) => {
+const FriendListItem = ({ avatar, name, isOnline, id }) => {
   return (
-    <>
-      {friends.map(({ avatar, name, isOnline, id }) => (
-        <li className={friendsCss.item} key={id}>
-          <span
-            className={`${friendsCss.status} ${
-              isOnline ? friendsCss.online : friendsCss.offline
-            }`}
-          >
-            {isOnline}
-          </span>
-          <img
-            className={friendsCss.avatar}
-            src={avatar}
-            alt="User avatar"
-            width="48"
-          />
-          <p className={friendsCss.name}>{name}</p>
-        </li>
-      ))}
-    </>
+    <li className={Css.item} key={id}>
+      <span className={`${Css.status} ${isOnline ? Css.online : Css.offline}`}>
+        {isOnline}
+      </span>
+      <img className={Css.avatar} src={avatar} alt="User avatar" width="48" />
+      <p className={Css.name}>{name}</p>
+    </li>
   );
 };
